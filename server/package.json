@@ -1,0 +1,40 @@
+{
+  "name": "wsd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=default DEBUG=* node --harmony app"
+  },
+  "author": "wsd",
+  "license": "ISC",
+  "dependencies": {
+    "co-busboy": "^1.3.1",
+    "co-cache": "2.0.1",
+    "config-lite": "1.2.0",
+    "crypto": "0.0.3",
+    "fs": "0.0.1-security",
+    "koa": "^1.2.1",
+    "koa-better-body": "^3.0.2",
+    "koa-bodyparser": "2.0.1",
+    "koa-errorhandler": "0.1.1",
+    "koa-flash": "1.0.0",
+    "koa-frouter": "0.3.2",
+    "koa-generic-session": "1.10.0",
+    "koa-generic-session-mongo": "0.2.4",
+    "koa-gzip": "0.1.0",
+    "koa-logger": "1.3.0",
+    "koa-router-cache": "0.3.0",
+    "koa-scheme": "2.2.0",
+    "koa-static": "^2.0.0",
+    "koa-static-cache": "3.1.3",
+    "merge-descriptors": "1.0.0",
+    "mongoose": "4.2.9",
+    "multiparty": "^4.1.2",
+    "validator": "4.4.0"
+  },
+  "engines": {
+    "node": ">=4"
+  }
+}
