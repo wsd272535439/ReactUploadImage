@@ -1,41 +1,19 @@
 /**
- * Created by hwh on 16/10/21.
+ * Created by hwh on 16/12/9.
  */
 var app = require('koa')();
-var logger = require('koa-logger');
-var bodyparser = require('koa-bodyparser');
-var staticCache = require('koa-static-cache');
-var errorhandler = require('koa-errorhandler');
-var session = require('koa-generic-session');
-var MongoStore = require('koa-generic-session-mongo');
-var flash = require('koa-flash');
-var gzip = require('koa-gzip');
-var scheme = require('koa-scheme');
 var router = require('koa-frouter');
-var routerCache = require('koa-router-cache');
-var config = require('./config/default');
-var cors = require('koa-cors');
+var bodyparser = require('koa-bodyparser');
 var static = require('koa-static');
-
-var merge = require('merge-descriptors');
-var core = require('./lib/core');
-
-merge({},core,false);
-
-app.keys = ['wsd'];
-
-app.use(errorhandler());
-app.use(static('theme'));
+var cors = require('koa-cors');
+//允许跨域访问
 app.use(cors());
-app.use(bodyparser());
-app.use(logger());
-//app.use(session({store:new MongoStore(config.mongodb)}));
-//app.use(flash());
-app.use(scheme(config.schemeConf));
-app.use(routerCache(app,config.routerCacheConf));
-app.use(gzip());
-app.use(router(app,config.routerConf));
+//指定服务器的静态资源地址，在当前目录下的文件可以直接localhost:3000/filename访问到
+app.use(static('static'));
 
-app.listen(config.port, function () {
-    console.log('Server listening on:',config.port);
+app.use(bodyparser());
+app.use(router(app,'routers'));
+
+app.listen(3000,function(){
+  console.log('Server listening on:',3000);
 })
